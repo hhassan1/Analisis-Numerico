@@ -2,6 +2,8 @@ classdef unittestfunction < matlab.unittest.TestCase
     properties (Access = protected)
         user_path
         base_path
+    end
+    properties (Abstract = true, Constant)
         function_name
     end
     methods 
