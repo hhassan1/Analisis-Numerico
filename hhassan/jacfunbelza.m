@@ -1,4 +1,4 @@
-function y = jacfunbelza(t, x, par)
+function y = jacfunbelza(~, x, par)
     a = par(1);
     b = par(2);
     g = par(3);

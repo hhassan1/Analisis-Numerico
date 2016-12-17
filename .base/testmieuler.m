@@ -1,3 +1,3 @@
 mispracticas
-[t, u] = mieuler(tinic,tfin,N,x0,fun,par);
+[t, u] = mieuler(t0,tfin,N,x0,fun,par);
 misgraficas

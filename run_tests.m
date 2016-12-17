@@ -1,18 +1,18 @@
-function results = run_tests( name )
+function results = run_tests( name, type)
     old = cd;
-    cd('.\.tests');
-    tests = dir('.\test_*.m'); tests = struct2cell(tests); tests = tests(1,:);
-    for i = 1:length(tests)
-        B = tests{i};
-        tests{i} = B(1:end-2);
-    end
+    cd(['.\.tests\' type]);
+    tests = dir(['.\test_*.m']); tests = struct2cell(tests); tests = tests(1,:);
     results = [];
-    %results = mat2cell(zeros(1,length(tests)));
-    for i = 1:length(tests)
-        X = [tests{i} '(''' [old '\' name] ''',''' [old '\.base'] ''')'];
-        ts = eval(X);
-        AUX = ts.run();
-        results = [results AUX];
+    if(strcmp(type,'functions'))
+        for i = 1:length(tests)
+            ts = feval(tests{i}(1:end-2),[old '\' name], [old '\.base']);
+            results = [results ts.run()];
+        end
+    elseif(strcmp(type,'methods'))
+        for i = 1:length(tests)
+            ts = feval(tests{i}(1:end-2),[old '\' name], [old '\.base']);
+            results = [results ts.run()];
+        end
     end
-    cd(old) 
+    cd(old); 
 end
