@@ -4,6 +4,17 @@ itmax=100;
 %Para activar una de las funciones, añadir un % delante de %{ debajo del
 %nombre de la funcion.
 
+%DISPARO LINEAL
+%%{ 
+pqr = {@(t) 0*t, @(t) 4+0*t, @(t) -4*t};
+a = 0;
+b = 2;
+C1 = 0;
+C2 = 0;
+t0 = 0;
+tfin = 1;
+N = 10000;
+%}
 %BELOUSOV-ZHABOTINSKY
 %{ 
 fun = @funbelza;  jac = @jacfunbelza;
@@ -47,7 +58,7 @@ l = 1;  g = 9.8;    beta = 0;
 par = [l,g,beta];
 %}
 %PENDULO
-%%{
+%{
 fun = @funcpendulo; jac = @jacfuncpendulo;
 x0 = [-pi;1e-6];   t0 = 0;	tfin = 18;	N = 1000;
 M = 0; l = 1; g = 9.8; beta = 0; 
