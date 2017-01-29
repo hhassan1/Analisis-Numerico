@@ -21,8 +21,8 @@ u(:,1)=x0;
 n=1;
 while t(:,n)<tfin
     %Estimación con paso h y con dos pasos h/2
-    [t_dummy,u1] = metodo(t(n),t(n)+h,1,u(:,n),f,par);
-    [t_dummy,u2] = metodo(t(n),t(n)+h,2,u(:,n),f,par);
+    [~,u1] = metodo(t(n),t(n)+h,1,u(:,n),f,par);
+    [~,u2] = metodo(t(n),t(n)+h,2,u(:,n),f,par);
     
     %Si la diferencia entre ambos resultados es aceptable, guardamos el resultado
     ERR = norm(u1(:,2)-u2(:,3)) / (h*(1-1/(2*p)));

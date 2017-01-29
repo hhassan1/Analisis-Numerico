@@ -40,7 +40,7 @@ end
 
 pause(1)
 
-if or(size(ERROR,2)>1,size(H,2)>1)
+if and(size(ERROR,2)>1,size(H,2)>1)
    figure(3)
    
    ERROR(:,1)=ERROR(:,2);
