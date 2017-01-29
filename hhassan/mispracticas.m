@@ -6,7 +6,7 @@ itmax=100;
 
 
 %DISPARO NO LINEAL
-%{ 
+%%{ 
 ffxfy = {@(t, x, y) 2*x^3, @(t, x, y) 6*x^2, @(t, x, y) 0};
 x0 = 1/2;
 xT = 1/3;
@@ -104,7 +104,7 @@ a = 30; b = 1;
 par = [a,b];
 %}
 %CORAZON
-%%{
+%{
 fun = @funccorazon; jac = @jacfunccorazon;
 x0 = [0;2]; t0 = 0;  tfin = 2*pi; N = 1000;
 %}
