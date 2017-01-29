@@ -1,5 +1,5 @@
 figure(1)
-aux = size(x0,1);
+aux = size(u,1);
 if(aux == 1)
     title('Grafica');
     plot(t,u,'r')

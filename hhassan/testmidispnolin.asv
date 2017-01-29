@@ -1,0 +1,5 @@
+mispracticas
+TOL = 10^(-3);
+[t, u] = midispnolin(t0, tfin, N, a, b, ffxfy, TOL);
+u_exacta = 1/(1 - 1:1/(N+1):2
+misgraficas

@@ -4,16 +4,43 @@ itmax=100;
 %Para activar una de las funciones, añadir un % delante de %{ debajo del
 %nombre de la funcion.
 
-%DISPARO LINEAL
-%%{ 
-pqr = {@(t) 0*t, @(t) 4+0*t, @(t) -4*t};
-a = 0;
-b = 2;
+
+%DISPARO NO LINEAL
+%{ 
+ffxfy = {@(t, x, y) 2*x^3, @(t, x, y) 6*x^2, @(t, x, y) 0};
+x0 = 1/2;
+xT = 1/3;
 C1 = 0;
 C2 = 0;
+t0 = 1;
+tfin = 2;
+N = 1000;
+%}
+%DISPARO LINEAL
+%{ 
+pqr = {@(t) 3, @(t) 2, @(t) 3*cos(t)};
+x0 = -2;
+xT = 1;
+C1 = 0;
+C2 = 1;
 t0 = 0;
-tfin = 1;
-N = 10000;
+tfin = 5;
+N = 1000;
+%}
+%FUNC23_1
+%{
+fun = @func23_1;  jac = @jacfunc23_1;
+x0 = 1;   t0 = 0;  tfin = 2;  N = 400;
+%}
+%FUNC23_2
+%{ 
+fun = @func23_2;  jac = @jacfunc23_2;
+x0 = 1;   t0 = 0;  tfin = Inf;  N = 400;
+%}
+%OSCIL
+%{ 
+fun = @funcoscil;  jac = @jacfuncoscil;
+x0 = 1/exp(1);   t0 = 0;  tfin = 8;  N = 400;
 %}
 %BELOUSOV-ZHABOTINSKY
 %{ 
@@ -77,7 +104,7 @@ a = 30; b = 1;
 par = [a,b];
 %}
 %CORAZON
-%{
+%%{
 fun = @funccorazon; jac = @jacfunccorazon;
 x0 = [0;2]; t0 = 0;  tfin = 2*pi; N = 1000;
 %}
